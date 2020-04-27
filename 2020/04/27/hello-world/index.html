@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="typora-vue-theme主题介绍, 编程小石头">
+    <meta name="keywords" content="Markdown 编辑器语法, 编程小石头">
     <meta name="description" content="java,javaScript">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>typora-vue-theme主题介绍 | 编程小石头</title>
+    <title>Markdown 编辑器语法 | 编程小石头</title>
     <link rel="icon" type="image/png" href="/stoneblog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/stoneblog/libs/awesome/css/all.css">
@@ -206,7 +206,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">typora-vue-theme主题介绍</h1>
+                    <h1 class="description center-align post-title">Markdown 编辑器语法</h1>
                 </div>
             </div>
         </div>
@@ -331,10 +331,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/stoneblog/tags/Typora/">
-                                <span class="chip bg-color">Typora</span>
-                            </a>
-                        
                             <a href="/stoneblog/tags/Markdown/">
                                 <span class="chip bg-color">Markdown</span>
                             </a>
@@ -360,7 +356,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-09-07
+                    2020-04-27
                 </div>
                 
 
@@ -369,7 +365,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4
+                    417
                 </div>
                 
 
@@ -391,8 +387,63 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="我的图片"><a href="#我的图片" class="headerlink" title="我的图片"></a>我的图片</h1><p><img src="/stoneblog/2018/09/07/hello-world/one.jpg" alt="图片"></p>
+                <!-- ![](one.jpg) -->
+<h1 id="Markdown的基本语法"><a href="#Markdown的基本语法" class="headerlink" title="Markdown的基本语法 "></a><center>Markdown的基本语法 </center></h1><h2 id="一，基本技巧"><a href="#一，基本技巧" class="headerlink" title="一，基本技巧"></a>一，基本技巧</h2><h3 id="1-代码高亮"><a href="#1-代码高亮" class="headerlink" title="1.  代码高亮"></a>1.  代码高亮</h3><pre><code> ```javascript
+    $(document).ready(function(){
+       alert(&quot;hello world&quot;);
+    });
+```</code></pre><h3 id="2-标题"><a href="#2-标题" class="headerlink" title="2. 标题"></a>2. 标题</h3><blockquote>
+<p>文章内容较多时，可以用标题分段：</p>
+</blockquote>
+<pre><code>标题一
+=====
+标题二
+---------
+ # 大标题
+## 小标题</code></pre><h3 id="3-粗斜体"><a href="#3-粗斜体" class="headerlink" title="3. 粗斜体"></a>3. 粗斜体</h3><pre><code>*斜体文本*
+***斜体文本***</code></pre><h3 id="4-链接"><a href="#4-链接" class="headerlink" title="4. 链接"></a>4. 链接</h3><blockquote>
+<p>常用链接方法</p>
+</blockquote>
+<pre><code>文字链接  [链接名称](http://链接网址)
+网址链接  &lt;http://链接网址&gt;</code></pre><blockquote>
+<p>高级链接技巧</p>
+</blockquote>
+<pre><code>这个链接用 1 作为网址变量 [Google][1].
+这个链接用 yahoo 作为网址变量 [Yahoo!][yahoo].
+然后在文档的结尾为变量赋值（网址）</code></pre><pre><code>  [1]: http://www.google.com/
+  [yahoo]: http://www.yahoo.com/</code></pre><h3 id="5-列表"><a href="#5-列表" class="headerlink" title="5.  列表"></a>5.  列表</h3><blockquote>
+<p>普通无序列表</p>
+</blockquote>
+<pre><code>- 列表文本前使用 [减号+空格]
++ 列表文本前使用 [加号+空格]
+* 列表文本前使用 [星号+空格]</code></pre><blockquote>
+<p>普通有序列表</p>
+</blockquote>
+<pre><code>1. 列表前使用 [数字+空格]
+2. 我们会自动帮你添加数字
+7. 不用担心数字不对，显示的时候我们会自动把这行的 7 纠正为 3</code></pre><blockquote>
+<p> 列表嵌套</p>
+</blockquote>
+<pre><code>1. 列出所有元素：
+    - 无序列表元素 A
+        1. 元素 A 的有序子列表
+    - 前面加四个空格
+2. 列表里的多段换行：
+    前面必须加四个空格，
+    这样换行，整体的格式不会乱
+3. 列表里引用：
 
+    &gt; 前面空一行
+    &gt; 仍然需要在 &gt;  前面加四个空格
+
+4. 列表里代码段：
+
+    前面四个空格，之后按代码语法 ``` 书写
+    或者直接空八个，引入代码块</code></pre><h3 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h3><blockquote>
+<p>普通引用</p>
+</blockquote>
+<pre><code>&gt; 引用文本前使用 [大于号+空格]
+&gt; 折行可以不加，新起一行都要加上哦</code></pre>
             </div>
             <hr/>
 
@@ -417,7 +468,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stone8034.github.io/stoneblog/2018/09/07/hello-world/">https://stone8034.github.io/stoneblog/2018/09/07/hello-world/</a>
+                    <a href="https://stone8034.github.io/stoneblog/2020/04/27/hello-world/">https://stone8034.github.io/stoneblog/2020/04/27/hello-world/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -454,10 +505,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/stoneblog/tags/Typora/">
-                                    <span class="chip bg-color">Typora</span>
-                                </a>
                             
                                 <a href="/stoneblog/tags/Markdown/">
                                     <span class="chip bg-color">Markdown</span>
@@ -634,12 +681,12 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/stoneblog/2018/09/07/hello-world/">
+                <a href="/stoneblog/2020/04/27/hello-world/">
                     <div class="card-image">
                         
-                        <img src="http://m.qpic.cn/psc?/V13h6InO2MXj5Y/9XwfBMWIaa5Dh0kEemxh*B6IOUF.Ye6Pc5psFuTqYkLL8IxnX3ifZzVuYT*y9FoGK6kNbGOCB*vmGF*vmPGmyQ!!/b&bo=IAPCASADwgERCT4!&rf=viewer_4" class="responsive-img" alt="typora-vue-theme主题介绍">
+                        <img src="http://m.qpic.cn/psc?/V13h6InO2MXj5Y/9XwfBMWIaa5Dh0kEemxh*B6IOUF.Ye6Pc5psFuTqYkLL8IxnX3ifZzVuYT*y9FoGK6kNbGOCB*vmGF*vmPGmyQ!!/b&bo=IAPCASADwgERCT4!&rf=viewer_4" class="responsive-img" alt="Markdown 编辑器语法">
                         
-                        <span class="card-title">typora-vue-theme主题介绍</span>
+                        <span class="card-title">Markdown 编辑器语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -655,7 +702,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
                             </span>
                         <span class="publish-author">
                             
@@ -672,10 +719,6 @@
 
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/stoneblog/tags/Typora/">
-                        <span class="chip bg-color">Typora</span>
-                    </a>
                     
                     <a href="/stoneblog/tags/Markdown/">
                         <span class="chip bg-color">Markdown</span>
@@ -692,12 +735,12 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/stoneblog/2018/09/07/hello-world/">
+                <a href="/stoneblog/2020/04/27/hello-world/">
                     <div class="card-image">
                         
-                        <img src="http://m.qpic.cn/psc?/V13h6InO2MXj5Y/9XwfBMWIaa5Dh0kEemxh*B6IOUF.Ye6Pc5psFuTqYkLL8IxnX3ifZzVuYT*y9FoGK6kNbGOCB*vmGF*vmPGmyQ!!/b&bo=IAPCASADwgERCT4!&rf=viewer_4" class="responsive-img" alt="typora-vue-theme主题介绍">
+                        <img src="http://m.qpic.cn/psc?/V13h6InO2MXj5Y/9XwfBMWIaa5Dh0kEemxh*B6IOUF.Ye6Pc5psFuTqYkLL8IxnX3ifZzVuYT*y9FoGK6kNbGOCB*vmGF*vmPGmyQ!!/b&bo=IAPCASADwgERCT4!&rf=viewer_4" class="responsive-img" alt="Markdown 编辑器语法">
                         
-                        <span class="card-title">typora-vue-theme主题介绍</span>
+                        <span class="card-title">Markdown 编辑器语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -708,7 +751,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
                             </span>
                         <span class="publish-author">
                             
@@ -725,10 +768,6 @@
 
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/stoneblog/tags/Typora/">
-                        <span class="chip bg-color">Typora</span>
-                    </a>
                     
                     <a href="/stoneblog/tags/Markdown/">
                         <span class="chip bg-color">Markdown</span>
@@ -921,7 +960,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4</span>&nbsp;字
+                class="white-color">417</span>&nbsp;字
             
             
             
