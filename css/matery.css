@@ -560,7 +560,8 @@ header .go-back i {
     height: 40vh !important;
 }
 
-.bg-cover:after {
+/*  去掉轮播遮罩 */
+/* .bg-cover:after {
     -webkit-animation: rainbow 60s infinite;
     animation: rainbow 60s infinite;
 }
@@ -575,7 +576,7 @@ header .go-back i {
     left: 0;
     top: 0;
     content: "";
-}
+} */
 
 .bg-cover .container {
     position: relative;
