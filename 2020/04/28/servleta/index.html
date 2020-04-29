@@ -388,22 +388,19 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议 "></a><center>HTTP协议 </center></h1><h2 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h2><ul>
-<li><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，是一个无状态的请求/响应协议。</p>
-</li>
-<li><p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
-<h3 id="HTTP请求-响应结构"><a href="#HTTP请求-响应结构" class="headerlink" title="HTTP请求/响应结构"></a>HTTP请求/响应结构</h3><h4 id="1-请求"><a href="#1-请求" class="headerlink" title="1. 请求"></a>1. 请求</h4></li>
-<li><p>一个HTTP请求由四个部分组成：请求行、请求头部、空行、请求体。<br><img src="/stoneblog/2020/04/28/servleta/%E8%AF%B7%E6%B1%82.png" alt></p>
-</li>
-<li><p>请求行</p>
-<ul>
+<li>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，是一个无状态的请求/响应协议。</li>
+<li>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</li>
+</ul>
+<h2 id="HTTP请求-响应结构"><a href="#HTTP请求-响应结构" class="headerlink" title="HTTP请求/响应结构"></a>HTTP请求/响应结构</h2><h3 id="1-请求"><a href="#1-请求" class="headerlink" title="1. 请求"></a>1. 请求</h3><ul>
+<li>一个HTTP请求由四个部分组成：请求行、请求头部、空行、请求体。<br><img src="/stoneblog/2020/04/28/servleta/%E8%AF%B7%E6%B1%82.png" alt></li>
+<li>请求行<ul>
 <li>请求行由请求方法字段、URL字段和HTTP协议版本字段3个字段组成，它们用空格分隔。比如 GET /data/info.html HTTP/1.1</li>
 <li>方法字段就是HTTP使用的请求方法，比如常见的GET/POST</li>
 <li>其中HTTP协议版本有两种：HTTP1.0/HTTP1.1 可以这样区别：</li>
 <li>HTTP1.0对于每个连接都只能传送一个请求和响应，请求就会关闭，            HTTP1.0没有Host字段;而HTTP1.1在同一个连接中可以传送多个请求和响应，多个请求可以重叠和同时进行，HTTP1.1必须有Host字段。</li>
 </ul>
 </li>
-<li><p>请求头 </p>
-<ul>
+<li>请求头 <ul>
 <li>HTTP客户程序(例如浏览器)，向服务器发送请求的时候必须指明请求类型(一般是GET或者 POST)。如有必要，客户程序还可以选择发送其他的请求头。大多数请求头并不是必需的，但Content-Length除外。对于POST请求来说 Content-Length必须出现。</li>
 <li>常见的请求头字段含义：<ul>
 <li>Accept： 浏览器可接受的MIME类型。</li>
@@ -435,20 +432,20 @@
 </li>
 </ul>
 </li>
-<li><p>空行(请求头和请求体之间的空行)</p>
-<ul>
+<li>空行(请求头和请求体之间的空行)<ul>
 <li>它的作用是通过一个空行，告诉服务器请求头部到此为止。    </li>
 </ul>
 </li>
-<li><p>请求体  </p>
+<li>请求体  <ul>
+<li>若方法字段是GET，则此项为空，没有数据，提交的数据在地址栏上。</li>
+<li>若方法字段是POST,则通常来说此处放置的就是要提交的数据</li>
+<li>比如要使用POST方法提交一个表单，其中有user字段中数据为“lisi”, password字段为12345，那么这里的请求体就是 user=lisi&amp;password=12345，使用&amp;来连接各个字段。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-响应"><a href="#2-响应" class="headerlink" title="2. 响应"></a>2. 响应</h3><ul>
+<li><p>同样的，HTTP响应报文也由三部分组成：响应行、响应头、响应体<br><img src="http%E5%93%8D%E5%BA%94.png" alt><br><img src="/stoneblog/2020/04/28/servleta/last-modified.png" alt></p>
 <ul>
-<li><p>若方法字段是GET，则此项为空，没有数据，提交的数据在地址栏上。</p>
-</li>
-<li><p>若方法字段是POST,则通常来说此处放置的就是要提交的数据</p>
-</li>
-<li><p>比如要使用POST方法提交一个表单，其中有user字段中数据为“lisi”, password字段为12345，那么这里的请求体就是 user=lisi&amp;password=12345，使用&amp;来连接各个字段。</p>
-<h4 id="2-响应"><a href="#2-响应" class="headerlink" title="2. 响应"></a>2. 响应</h4><ul>
-<li>同样的，HTTP响应报文也由三部分组成：响应行、响应头、响应体<br><img src="http%E5%93%8D%E5%BA%94.png" alt><br><img src="/stoneblog/2020/04/28/servleta/last-modified.png" alt></li>
 <li>响应行</li>
 </ul>
 <ul>
@@ -495,7 +492,7 @@
 </li>
 <li><p>setDateHeader方法和setIntHeadr方法专门用来设置包含日期和整数值的应答头，前者避免了把Java时间转换为GMT时间字符串的麻烦，后者则避免了把整数转换为字符串的麻烦。</p>
 </li>
-<li><p>HttpServletResponse还提供了许多设置<br>setContentType：设置Content-Type头。大多数Servlet都要用到这个方法。</p>
+<li><p>HttpServletResponse还提供了许多设置<br> setContentType：设置Content-Type头。大多数Servlet都要用到这个方法。</p>
 </li>
 <li><p>setContentLength：设置Content-Length头。对于支持持久HTTP连接的浏览器来说，这个函数是很有用的。</p>
 </li>
@@ -505,28 +502,16 @@
 </li>
 </ul>
 <ul>
-<li>响应体  </li>
-</ul>
-<ul>
+<li>响应体  <ul>
 <li>响应体就是响应的消息体，如果是纯数据就是返回纯数据，如果请求的是HTML页面，那么返回的就是HTML代码，如果是JS就是JS代码，如此之类。</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="GET-和-POST-分区"><a href="#GET-和-POST-分区" class="headerlink" title="GET 和 POST 分区"></a>GET 和 POST 分区</h3><h4 id="1-提交数据的形式："><a href="#1-提交数据的形式：" class="headerlink" title="1. 提交数据的形式："></a>1. 提交数据的形式：</h4><ul>
-<li>GET请求的数据会附在URL之后(就是把数据放置在HTTP协议头中)，会直接展现在地址栏中，以?分割URL和传输数据，参数之间以&amp;相连，如：login.action?name=hyddd&amp;password=idontknow&amp;verify=%E4%BD%A0%E5 %A5%BD。<br>如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，<br>得出如：%E4 %BD%A0%E5%A5%BD，其中%XX中的XX为该符号以16进制表示的ASCII。<br>而POST方法则会把数据放到请求数据字段中以&amp;分隔各个字段，请求行不包含数据参数，地址栏也不会额外附带参数</li>
-</ul>
-<ol start="2">
-<li>提交数据的大小</li>
-</ol>
-<ul>
-<li>get方法提交数据的大小直接影响到了URL的长度，但HTTP协议规范中其实是没有对URL限制长度的，限制URL长度的是客户端或服务器的支持的不同所影响：比如IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。<br>post方式HTTP协议规范中也没有限定，起限制作用的是服务器的处理程序的处理能力。<br>所以大小的限制还是得受各个web服务器配置的不同而影响。</li>
-</ul>
-<ol start="3">
-<li>提交数据的安全</li>
-</ol>
-<ul>
+<h2 id="GET-和-POST-分区"><a href="#GET-和-POST-分区" class="headerlink" title="GET 和 POST 分区"></a>GET 和 POST 分区</h2><h3 id="1-提交数据的形式："><a href="#1-提交数据的形式：" class="headerlink" title="1. 提交数据的形式："></a>1. 提交数据的形式：</h3><ul>
+<li>GET请求的数据会附在URL之后(就是把数据放置在HTTP协议头中)，会直接展现在地址栏中，以?分割URL和传输数据，参数之间以&amp;相连，如：login.action?name=hyddd&amp;password=idontknow&amp;verify=%E4%BD%A0%E5 %A5%BD。<br>如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，<br>得出如：%E4 %BD%A0%E5%A5%BD，其中%XX中的XX为该符号以16进制表示的ASCII。<br>而POST方法则会把数据放到请求数据字段中以&amp;分隔各个字段，请求行不包含数据参数，地址栏也不会额外附带参数<h3 id="2-提交数据的大小"><a href="#2-提交数据的大小" class="headerlink" title="2. 提交数据的大小"></a>2. 提交数据的大小</h3></li>
+<li>get方法提交数据的大小直接影响到了URL的长度，但HTTP协议规范中其实是没有对URL限制长度的，限制URL长度的是客户端或服务器的支持的不同所影响：比如IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。<br>post方式HTTP协议规范中也没有限定，起限制作用的是服务器的处理程序的处理能力。<br>所以大小的限制还是得受各个web服务器配置的不同而影响。<h3 id="3-提交数据的安全"><a href="#3-提交数据的安全" class="headerlink" title="3. 提交数据的安全"></a>3. 提交数据的安全</h3></li>
 <li>POST比GET方式的安全性要高，通过GET提交数据，用户名和密码将明文出现在URL上，因为一下几个原因get方式安全性会比post弱：<br>(1)登录页面有可能被浏览器缓存<br>(2)其他人查看浏览器的历史纪录，那么别人就可 以拿到你的账号和密码了<br>(3)当遇上跨站的攻击时，安全性的表现更差了</li>
 </ul>
 
@@ -781,8 +766,7 @@
                         
                             HTTP协议 什么是HTTP协议
 HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，是一个无状态的请求/响应协议。
-
-HTTP是一个基于TCP/IP通信协议来传递
+HTTP是一个基于TCP/IP通信协议来传递数
                         
                     </div> -->
                     <div class="summary">
