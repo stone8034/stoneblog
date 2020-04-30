@@ -23,6 +23,25 @@
     
     
     <entry>
+      <title>servlet</title>
+      <link href="/stoneblog/2020/04/30/servlet/"/>
+      <url>/stoneblog/2020/04/30/servlet/</url>
+      
+        <content type="html"><![CDATA[<h3 id="什么是Servelt-Interface"><a href="#什么是Servelt-Interface" class="headerlink" title="什么是Servelt  (Interface)"></a>什么是Servelt  (Interface)</h3><blockquote><p>Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。</p></blockquote><h3 id="serlvet-规范-接口-包含三个技术点"><a href="#serlvet-规范-接口-包含三个技术点" class="headerlink" title="serlvet 规范(接口)    包含三个技术点"></a>serlvet 规范(接口)    包含三个技术点</h3><ul><li>servlet 技术</li><li>filter 技术 – 过滤器</li><li>listener 技术 - 监听器</li></ul><h3 id="快速实现"><a href="#快速实现" class="headerlink" title="快速实现"></a>快速实现</h3><ul><li>创建类实现servlet接口</li><li>覆盖尚未实现的方法</li><li>在web.xml 进行servlet配置 </li></ul><h3 id="Servlet-接口中的方法"><a href="#Servlet-接口中的方法" class="headerlink" title="Servlet 接口中的方法"></a>Servlet 接口中的方法</h3><ol><li>init(ServletConfig arg0)<br> 何时执行：servelt 对象创建的时候</li><li>service(ServletRequest req,ServletResponse res)<br>何时执行: 每次都会执行</li><li>destroy()<br> 何时执行:  servlet 对象销毁的时候执行</li></ol><h3 id="Servlet-的配置"><a href="#Servlet-的配置" class="headerlink" title="Servlet 的配置"></a>Servlet 的配置</h3><ol><li>servlet的配置文件是web.xml</li><li>url-pattern的配置方式<br>  完全匹配<br>  目录匹配<br>  扩展名配置<br>  注意: 第二种不能和第三种连用 </li></ol><h3 id="Servlet-的生命周期-面试题中会有"><a href="#Servlet-的生命周期-面试题中会有" class="headerlink" title="Servlet 的生命周期(面试题中会有)"></a>Servlet 的生命周期(面试题中会有)</h3><ol><li><p>创建 ：<br>默认第一次访问 时创建Servlet对象<br>为什么是默认: servlet 对象的创建,是可以配置的<br>load-on-startup  对象在服务器启动时创建</p></li><li><p>销毁：<br>服务器关闭 servlet 销毁</p></li><li><p>每次访问服务器必然执行的方法:<br>servlet(ServletRequest req,ServletResponse res) 方法<br>ServletRequest 代表请求  认为ServletRequest 内部封装的是 http请求的信息          ServletResponse 代表响应  认为ServletResponse 要封装的响应信息</p></li></ol><h3 id="servelt-访问过程"><a href="#servelt-访问过程" class="headerlink" title="servelt 访问过程"></a>servelt 访问过程</h3><p> <img src="/stoneblog/2020/04/30/servlet/servlet.png" alt><br><img src="/stoneblog/2020/04/30/servlet/servlet%E8%AE%BF%E9%97%AE%E8%BF%87%E7%A8%8B.png" alt></p><h3 id="访问页面"><a href="#访问页面" class="headerlink" title="访问页面"></a>访问页面</h3><p>  配置文件web.xml中</p><blockquote><p> web应用中的所有资源的响应都是 servlet 负责的,包括静态资源!</p></blockquote><h3 id="实际开发中"><a href="#实际开发中" class="headerlink" title="实际开发中"></a>实际开发中</h3><blockquote><p> 我们不是实现（implements）接口servlet，而是去继承（extends）HttpServlet 类</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> javaEE </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTP协议(包括GET和POST)</title>
       <link href="/stoneblog/2020/04/28/servleta/"/>
       <url>/stoneblog/2020/04/28/servleta/</url>
