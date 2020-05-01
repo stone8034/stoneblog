@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SQL</title>
+      <link href="/stoneblog/2020/05/01/sql/"/>
+      <url>/stoneblog/2020/05/01/sql/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a><center>SQL</center></h2><p><a href="https://www.mysqlzh.com/doc/124.html" target="_blank" rel="noopener">参考</a></p><h3 id="开启关闭数据库"><a href="#开启关闭数据库" class="headerlink" title="开启关闭数据库"></a>开启关闭数据库</h3><p>net start mysql<br>net stop mysql </p><h3 id="登录数据库"><a href="#登录数据库" class="headerlink" title="登录数据库"></a>登录数据库</h3><p>进入cmd 然后 mysql -u root -p 密码</p><h3 id="sql-分类"><a href="#sql-分类" class="headerlink" title="sql 分类"></a>sql 分类</h3><ol><li>数据库定义语言: DDL, 用来定义数据库对象:数据库database,表table,列column等。<br>关键字：创建create ,修改 alter,删除,drop等(结构)</li><li>数据库操作语言: DML,对数据库中表的记录进行更新,<br>关键词: 插入insert,删除delete,更新update等(数据)</li><li>数据查询语言: DQL,用来查询表中的记录。<br>关键词select,from,where 等</li></ol><h3 id="对库操作"><a href="#对库操作" class="headerlink" title="对库操作"></a>对库操作</h3><ol><li><p>创建数据库: create database 数据库名; </p><p> create database 数据库名 character set 字符集;</p></li><li><p>查看数据库:<br> show databases; </p></li><li><p>查看编码:<br> show create database 数据库名;</p></li><li><p>删除数据库:<br> drop database 数据库名;</p></li><li><p>使用数据库:<br> use 数据库名;</p></li><li><p>查看正在使用(操作)的数据库:<br> select databases();</p></li><li><p>修改数据库的字符集:<br>alter database 数据库名 character set 字符集;</p></li></ol><h3 id="对表操作"><a href="#对表操作" class="headerlink" title="对表操作"></a>对表操作</h3><ol><li><p>创建表: create table 表名(<br>字段名 类型(长度) [约束],<br>字段名 类型(长度) [约束],<br>字段名 类型(长度) [约束],<br>………<br> );</p></li><li><p>字符类型: varchar(n)</p></li><li><p>查看表: show tables;</p></li><li><p>查看表的结构: desc 表名; </p></li><li><p>删除表: drop table 表名; </p></li><li><p>修改表:<br> 6.1 添加一列: alter table 表名 add 字段名 类型(长度) [约束];<br> 6.2 修改列的类型长度: alter table 表名 modify 要修改的字段名 类型(长度) [约束];<br> 6.3 修改表的列名: alter table 表名 change 旧列名 新列名 类型(长度) [约束];<br> 6.4 删除表的列: alter table 表名 drop 列名;<br> 6.5 修改表名: rename table 表名 to 新表名;<br> 6.6 修改表的字符集: alter table 表名 character set 字符编码;<br> 6.7 查看当前表的编码: show create table 表名;<br> 6.8 向表中插入记录: insert into  表名(列名1,列名2,列名3,…) values (数据1,数据2,数据3,…); 对应字段值设置值<br>insert into  表名 values (数据1,数据2,数据3,…); 每一个字段都要设置值</p></li><li><p>查入中文数据乱码问题解决:<br>7.1  方式一[不建议使用]<br> 直接修改数据库安装目录里的 my.ini 文件:<br>50行左右 default-character-set = utf-8<br>7.2 方式二<br>  cmd  数据库中  set names gbk;</p></li><li><p>修改表记录:</p><p>8.1 不带条件的：<br>  update 表名 set  字段名 = 值;<br>8.2 带条件的:<br> update 表名 set 字段名 = 值 where 条件(例如 name = ‘stone’);</p></li></ol><ol start="9"><li><p>删除表记录:</p><p> 9.1 带条件的:<br> delete from 表名  where 条件; </p><p> 9.2 不带条件的:<br> delete from 表名; [数据会被全部删除]</p></li><li><p>delete 和 truncate 的区别:</p><p>10.1 delete 删除的时候是一条一条的删除，他配合事务,可以将删除的数据找回<br>10.2 truncate 删除,他是将整个表摧毁,然后在创建一模一样的表。 他删除的数据无法找回</p></li></ol><ol start="11"><li>开启事务: start transaction; </li><li>事务回滚: rollback; </li></ol><h3 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作:"></a>查询操作:</h3><ol><li><p>语法:select [distinct] *| 列名, 列名, from 表名 [where 条件]</p><p>查询所有: select  from product;表别名: select  fromo product as p;<br>列别名: select pname as p from product;<br>去重复: select distinck(price) from product;<br> 所有商品价格 +10进行显示: select pname,price+10, from product;</p></li></ol><ol start="2"><li><p>条件查询: </p><p> 2.1 查询商品名称为’a’的商品信息: select  from product where name = &#39;a&#39;; 2.2 查询商品价格 &gt; 60 的所有商品信息: select  from product where price &gt; 60;<br> 2.3 查询所有商品含 ‘士’ 的商品信息： select  from procut where pname like &#39;%士&#39;; 2.4 查询商品id 在(3,6,9) 范围内的所有商品信息: select  from product where id in(3,6,9);<br> 2.5 查询商品名称为’a’ 并且id 为 9 的商品信息: select * from product where pname = ‘a’ and id = 9; </p><p> 2.6 查询id 为 3 或者 为 6 的商品信息: select * from product where id = 3 or id = 6;</p></li><li><p>排序:<br>  查询所有的商品按价格排序: select * from product order by price asc;  (asc 升序 desc 降序)</p><p> order by 需要放在条件where 的后面: select * from product where pname like ‘%士%’ order by price;</p></li><li><p>聚合: </p><p> 求和: sum()<br> 平均值: avg()<br> 最大值: max()<br> 最小值：min()<br> 计数: count()   </p><blockquote><p> 注意: 聚合函数不统计null值</p></blockquote><p> 查询所有商品的价格总和: select sum(price) from product;<br> 获得商品的平均价: select avg(price) from product;<br> 获得所有商品的数量: select count(*) from product;</p></li><li><p>分组: </p><p> 根据字段cid 分组,统计商品个数: select cid,count(*)  from procut group by cid;<br> 根据字段cid 分组,统计商品平均价格,并且平均价格大于 2000 元: select cid,avg(price) from product group by cid having<br> avg(price) &gt; 2000;</p><blockquote><p>注意:分组后使用条件只能用  having</p></blockquote></li><li><p>查询总结:</p><p> select distinct *|字段<br> from 表<br> where 查询条件<br> group by  分组字段<br> having  分组条件<br> order by 排序字段 asc|desc   [必须要放在后边]</p></li></ol><h3 id="外键"><a href="#外键" class="headerlink" title="外键:"></a>外键:</h3><ol><li>特点:<br> 从表外键的值是对主表主键的引用<br> 从表外键类型，必须与主表主键类型一致</li></ol><ol start="2"><li><p>使用外键保证数据的完整性<br>从表不能删除，从表中已引用的记录;</p></li><li><p>声明外键约束</p><p> 语法: alter table 从表 add [constraint] [外键名称] foreign key (从表外键字段名) refercnces 主表(主表的主键);</p></li></ol><h3 id="数据库之表与表之间的关系-（待完善）"><a href="#数据库之表与表之间的关系-（待完善）" class="headerlink" title="数据库之表与表之间的关系:   （待完善）"></a>数据库之表与表之间的关系:   （待完善）</h3><ol><li>多对一或者一对多</li><li>一对一</li><li>多对多   三张表(两张主表,一张从表,提供两个字段,都是外键)</li></ol><h3 id="内连接查询-使用inner-join-–inner-可以省略"><a href="#内连接查询-使用inner-join-–inner-可以省略" class="headerlink" title="内连接查询 使用inner join  –inner 可以省略"></a>内连接查询 使用inner join  –inner 可以省略</h3><ol><li>查询连个表的交集</li><li>隐式内连接 select * from A,B where 条件</li><li>显示内连接 select * from A inner join B on 条件</li></ol><h3 id="外连接查询"><a href="#外连接查询" class="headerlink" title="外连接查询"></a>外连接查询</h3><ol><li><p>左连接<br>左表全部及连个表的交集<br>left outer join<br>select * from left outer join B on 条件</p></li><li><p>右连接<br>右边全部及两个表的交集<br>right outer join<br>select * from A right outer join B on 条件 </p></li></ol><h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><ol><li>将一条select 语句结果作为另一条select语法一部分(查询条件,查询结果,表等    ) 去查询</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> SQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>httpRequest和HttpResponse</title>
       <link href="/stoneblog/2020/04/30/httpRequestHttpResponse/"/>
       <url>/stoneblog/2020/04/30/httpRequestHttpResponse/</url>
