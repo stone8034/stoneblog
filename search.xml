@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>会话技术Cookie&amp;Session</title>
+      <link href="/stoneblog/2020/05/02/cookiesession/"/>
+      <url>/stoneblog/2020/05/02/cookiesession/</url>
+      
+        <content type="html"><![CDATA[<h1 id="会话技术Cookie-amp-Session"><a href="#会话技术Cookie-amp-Session" class="headerlink" title="会话技术Cookie&amp;Session"></a>会话技术Cookie&amp;Session</h1><h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><ol><li>存储客户端的状态<br>会话技术是帮助服务器记住客户端状态(区分客户端)</li><li>会话技术<br>从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，称为一次会话。会话技术就是记录这次会话中客户端的状态与数据的。<br>会话技术分为Cookie 和Session：<br>Cookie: 数据存储在客户端本地，减少服务器的压力，安全性不好，客户端可以cookie<br>Session: 数据存储到服务器端，安全性相对好，增加服务器的压力</li></ol><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p><img src="/stoneblog/2020/05/02/cookiesession/cookie%E6%8A%80%E6%9C%AF%E7%9A%84%E8%B4%AD%E7%89%A9%E8%BF%87%E7%A8%8B.png" alt></p><ol><li><p>服务端向客户端发送一个Cookie<br>创建Cookie：Cookie cookie= new Cookie(String cookieName, String cookieValue);</p></li><li><p>发送到客户端: response.addCookie(cookie);</p></li><li><p>设置Cookie 在客户端的持久化时间<br>cookie.cookie.setMaxAge(时间秒);<br>注意: 如果不设置持久化时间，Cookie会存储在浏览器内存中，浏览器关闭cookie信息销毁(会话级别的cookie)，如果设置持久化时间，cookie信息会被持久化到浏览器的磁盘文件里</p></li><li><p>设置cookie的携带路径<br>cookie.setPath(url);<br>如果不设置默认也会有一个携带路径，*默认为当前路径的上一级路径*</p></li><li><p>删除cookie<br>Cookie cookie  = new Cookie(“stone”,””);<br>cookie.setMaxAge(0);</p></li><li><p>注意: cookie中不能存储中文</p></li><li><p>获取Cookie</p><pre class=" language-java"><code class="language-java">     Cookie<span class="token punctuation">[</span><span class="token punctuation">]</span> cookies <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getCookies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>cookies <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>         <span class="token keyword">for</span><span class="token punctuation">(</span>Cookie cookie <span class="token operator">:</span> cookies<span class="token punctuation">)</span><span class="token punctuation">{</span>             response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>cookie<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">":"</span><span class="token operator">+</span>cookie<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span></code></pre></li></ol><h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p><img src="/stoneblog/2020/05/02/cookiesession/Session%E6%B5%81%E7%A8%8B.png" alt></p><p>session技术是将数据存储在服务器端的技术，会为每一个客户端都创建一块内存空间存储客户的数据，但客户端需要每次都携带一个标识ID去服务器中寻找属于自己的内存空间。所以说session的实现是基于Cookie的，Session需要借助于Cookie存储客户的唯一性标识JSESSIOINID</p><ol><li>获取(创建)Session对象<br>HttpSession session = request.getSession();<br>方法内部会判断该客户端是否在服务器端已经存在的session<br>如果该客户端在此服务器不存在session 那么就会创建一个session对象<br>如果该客户端在此服务器上存在session 获得已经存在的该session返回<br>(实质就是根据JSESSIONID判断该客户端是否存在服务器已经存在session了)</li><li>获得session的JESSIONID<br>String id = session.getId();//该session对象的id</li><li>session存取数据<br>session.setAttribute(String name,Object obj);// 存<br>session.getAttribute(String name);// 取 </li><li>Session对象的生命周期（面试或者笔试）<br>4.1创建: 第一次执行request.getSession();时创建<br>4.2销毁:<br>（1）session过期/失效(默认30分钟) 可在工程的web.xml 文件中配置<br>默认30分钟是从不操作服务器的资源开始计时<br>（2）服务器(非正常)关闭时<br>（3）手动销毁 session.invalidate(); (invalidate 使无效)<br>4.3作用范围:  默认在一次会话中，也就是说在，一次会话中任何资源公用一个session对象</li><li>Session持久化<br>手动创建一个存储JSESSIONID的Cookie,为该cookie设置持久化时间<br>String id = session.getId();<br>Cookie cookie = new Cookie(“JSESSIONID”,id);<br>cookie.setMaxAge(60*10);</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> javaEE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 会话技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL</title>
       <link href="/stoneblog/2020/05/01/sql/"/>
       <url>/stoneblog/2020/05/01/sql/</url>
