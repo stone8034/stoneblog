@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="servlet, 编程基础，java,php,html,javascript,css,jQ,SQL">
+    <meta name="keywords" content="JSP, 编程基础，java,php,html,javascript,css,jQ,SQL">
     <meta name="description" content="java,javaScript">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>servlet | 编程小石头</title>
+    <title>JSP | 编程小石头</title>
     <link rel="icon" type="image/png" href="/stoneblog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/stoneblog/libs/awesome/css/all.css">
@@ -201,12 +201,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/stoneblog/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/stoneblog/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">servlet</h1>
+                    <h1 class="description center-align post-title">JSP</h1>
                 </div>
             </div>
         </div>
@@ -329,9 +329,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/stoneblog/tags/JSP/">
+                                <span class="chip bg-color">JSP</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -352,7 +356,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-30
+                    2020-05-03
                 </div>
                 
 
@@ -361,14 +365,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    407
+                    946
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -383,44 +387,101 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="什么是Servelt-Interface"><a href="#什么是Servelt-Interface" class="headerlink" title="什么是Servelt  (Interface)"></a>什么是Servelt  (Interface)</h3><blockquote>
-<p>Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。</p>
+                <h1 id="jsp技术"><a href="#jsp技术" class="headerlink" title="jsp技术"></a>jsp技术</h1><blockquote>
+<p> 服务端的动态资源，获取数据和显示数据。<br>jsp由html,java脚本(java片段)，jsp动作标签组成。</p>
 </blockquote>
-<h3 id="serlvet-规范-接口-包含三个技术点"><a href="#serlvet-规范-接口-包含三个技术点" class="headerlink" title="serlvet 规范(接口)    包含三个技术点"></a>serlvet 规范(接口)    包含三个技术点</h3><ul>
-<li>servlet 技术</li>
-<li>filter 技术 – 过滤器</li>
-<li>listener 技术 - 监听器</li>
-</ul>
-<h3 id="快速实现"><a href="#快速实现" class="headerlink" title="快速实现"></a>快速实现</h3><ul>
-<li>创建类实现servlet接口</li>
-<li>覆盖尚未实现的方法</li>
-<li>在web.xml 进行servlet配置 </li>
-</ul>
-<h3 id="Servlet-接口中的方法"><a href="#Servlet-接口中的方法" class="headerlink" title="Servlet 接口中的方法"></a>Servlet 接口中的方法</h3><ol>
-<li>init(ServletConfig arg0)<br> 何时执行：servelt 对象创建的时候</li>
-<li>service(ServletRequest req,ServletResponse res)<br>何时执行: 每次都会执行</li>
-<li>destroy()<br> 何时执行:  servlet 对象销毁的时候执行</li>
+<h2 id="jsp-脚本和注释"><a href="#jsp-脚本和注释" class="headerlink" title="jsp 脚本和注释"></a>jsp 脚本和注释</h2><ol>
+<li>jsp脚本<br>&lt;% java代码%&gt; –内部的java代码会被翻译到servlet方法的内部<br>&lt;%=java变量或者表达式 %&gt; —会被翻译成servlet方法内部out.print();<br>&lt;%!java代码%&gt; — 会被翻译成servelt的成员的内部</li>
+<li>jsp注释    不同注释的可见范围不同<br>html 注释：\<!--注释内容-->   – 可见范围jsp源码,翻译后的servlet,页面显示html源码<br>java注释：// 单行注释 /多行注释/  —- 可见范围jsp源码翻译后的servlet<br>jsp注释: &lt;%–注释内容–%&gt; – 可见范围 jsp源码可见</li>
 </ol>
-<h3 id="Servlet-的配置"><a href="#Servlet-的配置" class="headerlink" title="Servlet 的配置"></a>Servlet 的配置</h3><ol>
-<li>servlet的配置文件是web.xml</li>
-<li>url-pattern的配置方式<br>  完全匹配<br>  目录匹配<br>  扩展名配置<br>  注意: 第二种不能和第三种连用 </li>
+<h2 id="jsp-运行原理-jsp本质就是servelt-（面试）"><a href="#jsp-运行原理-jsp本质就是servelt-（面试）" class="headerlink" title="jsp 运行原理  (jsp本质就是servelt)（面试）"></a>jsp 运行原理  (jsp本质就是servelt)（面试）</h2><ol>
+<li>jsp 在第一次被访问时会被web容器翻译成servlet,在执行<br>过程:<br>第一次被访问—&gt; helloword.jsp–&gt; helloword_jsp.serlvet–&gt; 编译运  行<br>ps: 被编译后的servlet在tomcat 的work目录中可以找到 </li>
 </ol>
-<h3 id="Servlet-的生命周期-面试题中会有"><a href="#Servlet-的生命周期-面试题中会有" class="headerlink" title="Servlet 的生命周期(面试题中会有)"></a>Servlet 的生命周期(面试题中会有)</h3><ol>
-<li><p>创建 ：<br>默认第一次访问 时创建Servlet对象<br>为什么是默认: servlet 对象的创建,是可以配置的<br>load-on-startup  对象在服务器启动时创建</p>
-</li>
-<li><p>销毁：<br>服务器关闭 servlet 销毁</p>
-</li>
-<li><p>每次访问服务器必然执行的方法:<br>servlet(ServletRequest req,ServletResponse res) 方法<br>ServletRequest 代表请求  认为ServletRequest 内部封装的是 http请求的信息          ServletResponse 代表响应  认为ServletResponse 要封装的响应信息</p>
-</li>
-</ol>
-<h3 id="servelt-访问过程"><a href="#servelt-访问过程" class="headerlink" title="servelt 访问过程"></a>servelt 访问过程</h3><p> <img src="/stoneblog/2020/04/30/servlet/servlet.png" alt><br><img src="/stoneblog/2020/04/30/servlet/servlet%E8%AE%BF%E9%97%AE%E8%BF%87%E7%A8%8B.png" alt></p>
-<h3 id="访问页面"><a href="#访问页面" class="headerlink" title="访问页面"></a>访问页面</h3><p>  配置文件web.xml中</p>
-<blockquote>
-<p> web应用中的所有资源的响应都是 servlet 负责的,包括静态资源!</p>
+<h2 id="jsp指令-3个-（笔试）"><a href="#jsp指令-3个-（笔试）" class="headerlink" title="jsp指令(3个) （笔试）"></a>jsp指令(3个) （笔试）</h2><blockquote>
+<p>jsp 指令是指导jsp翻译和运行的命令</p>
 </blockquote>
-<h3 id="实际开发中"><a href="#实际开发中" class="headerlink" title="实际开发中"></a>实际开发中</h3><blockquote>
-<p> 我们不是实现（implements）接口servlet，而是去继承（extends）HttpServlet 类</p>
+<ol>
+<li><p>page指令— 属性最多的指令(实际开发中page指令默认)<br>属性最多的一个指令，根据不同的属性，指导整个也页面特性<br>格式:&lt;%@page 属性名1 = “属性值1” 属性名2 = “属性值2” 属性名3 = “属性值3”%&gt;<br>常用属性如下:<br>language: jsp脚本可以嵌入的语言种类<br>pageEncoding：当前jsp文件的本身编码– 内部可以包含contentType<br>contentType： response.setContentType(“text/html;charset=UTF-8”)<br>session: 是否jsp在翻译时自动创建session<br>import：导入java包<br>errorPage: 当前页面出错后跳转到哪个页面<br>isErrorPage: 当前页面是一个处理错误的页面</p>
+</li>
+<li><p>include 指令<br>页面包含(静态包含)指令，可以将页面包含到另一个jsp页面中<br>格式: &lt;%@ include file=”被包含的文件地址”%&gt;</p>
+</li>
+<li><p>tablib指令<br>在jsp页面中引入标签库(jslt 标签库,struts2 标签库)<br>格式： &lt;%@ tablib uri = “标签库的地址” prefix=”前缀”%&gt;</p>
+<h2 id="jsp内置-隐私对象（9个）"><a href="#jsp内置-隐私对象（9个）" class="headerlink" title="jsp内置/隐私对象（9个）"></a>jsp内置/隐私对象（9个）</h2><blockquote>
+<p>jsp被翻译成servlet 之后，servlet方法中有九个对象定义并完成初始化完毕，我们在jsp脚本中可以直接使用这九个对象。</p>
 </blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>out</td>
+<td>javax.servlet.jsp.JspWriter</td>
+<td>页面输出</td>
+</tr>
+<tr>
+<td>reqest</td>
+<td>javax.servlet.Http.HttpServletReequest</td>
+<td>得到用户请求信息</td>
+</tr>
+<tr>
+<td>response</td>
+<td>java.sevlet.Http.HttpServletResponse</td>
+<td>服务器向客户端 响应信息</td>
+</tr>
+<tr>
+<td>config</td>
+<td>javax.servlet.ServletConfig</td>
+<td>服务器配置，可以获得初始化参数</td>
+</tr>
+<tr>
+<td>session</td>
+<td>javax.servlet.http.HttpSession</td>
+<td>用来保存用户信息</td>
+</tr>
+<tr>
+<td>application</td>
+<td>javax.servlet.ServletContext</td>
+<td>所有用户的共享信息</td>
+</tr>
+<tr>
+<td>page</td>
+<td>java.lang.Object</td>
+<td>指定当前页面跳转后的Servlet类的实例</td>
+</tr>
+<tr>
+<td>pageContext</td>
+<td>javax.servlet.jsp.PageContext</td>
+<td>JSP的页面容器</td>
+</tr>
+<tr>
+<td>exception</td>
+<td>java.lang.Throwable</td>
+<td>表示JSP页面所发生的异常，在错误页面中才起作用</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>out 对象<br>out的类型: JspWriter();<br>out作用就是向客户端输出内容<br>out缓冲区默认8kb 可以设置成0， 代表关闭out缓冲区，内容直接写到response缓冲区</p>
+</li>
+<li><p>pageContext 对象<br>jsp页面的上下文对象，作用如下<br>page对象与pageContext对象不是一回事</p>
+<ol>
+<li>pageContext是一个域对象<br>getAttribute(String name,Object obj);<br>setAttribute(String name);<br>removeAttribute(String name);<br>setAttribute(String name,Object obj,int scope);<br>getAttribute(String name,int scope);<br>removeAttribute(String name,int scope);<br>findAttribute(String name);</li>
+</ol>
+<p>—- 依次从pageContext域，request域，session域，application域中获取属性，在某个域中获取后将不再向后寻找。</p>
+<ol start="2">
+<li>可以获得其他8大隐式对象<br>例如：pageContext.getRequest();<br>&nbsp;  &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;pageContext.getSession();</li>
+</ol>
+</li>
+<li><p>四大作用域的总结:<br>page域: 当前jsp页面范围<br>request域: 一次请求<br>session域: 一次会话<br>application域: 真个web应用</p>
+</li>
+</ol>
+<h2 id="jsp-标签-动作"><a href="#jsp-标签-动作" class="headerlink" title="jsp 标签 (动作)"></a>jsp 标签 (动作)</h2><ol>
+<li>页面包含(动作包含):\&lt;jsp:include page=”被包含的页面”/&gt;</li>
+<li>页面转发: &lt;jsp:forward page=”要转发的资源”/&gt;</li>
+</ol>
 
             </div>
             <hr/>
@@ -446,7 +507,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stone8034.github.io/stoneblog/2020/04/30/servlet/">https://stone8034.github.io/stoneblog/2020/04/30/servlet/</a>
+                    <a href="https://stone8034.github.io/stoneblog/2020/05/03/jsp/">https://stone8034.github.io/stoneblog/2020/05/03/jsp/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -483,7 +544,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/stoneblog/tags/JSP/">
+                                    <span class="chip bg-color">JSP</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -650,43 +715,42 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/stoneblog/2020/04/30/httpRequestHttpResponse/">
+                <a href="/stoneblog/2020/05/03/jsp/">
                     <div class="card-image">
                         
                         
-                        <img src="/stoneblog/medias/featureimages/2.jpg" class="responsive-img" alt="httpRequest和HttpResponse">
+                        <img src="/stoneblog/medias/featureimages/15.jpg" class="responsive-img" alt="JSP">
                         
-                        <span class="card-title">httpRequest和HttpResponse</span>
+                        <span class="card-title">JSP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-
                     <!-- <div class="summary block-with-text">
                         
-                             HttpServletResponse 
-response 设置响应行
-设置响应行的状态码 response.setStatus(整数);
+                            jsp技术
+ 服务端的动态资源，获取数据和显示数据。jsp由html,java脚本(java片段)，jsp动作标签组成。
 
-response 设置响应头
-response.addHeader(String name, S
+jsp 脚本和注释
+jsp脚本&lt;% java代码%&gt; –内部的java代码会被翻译到servlet方法的
                         
                     </div> -->
                     <div class="summary">
                         
-                             HttpServletResponse 
-response 设置响应行
-设置响应行的状态码 response.setStatus(整数);
+                            jsp技术
+ 服务端的动态资源，获取数据和显示数据。jsp由html,java脚本(java片段)，jsp动作标签组成。
+
+jsp 脚本和注
                         
                     </div>
-
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -699,6 +763,15 @@ response 设置响应行
                         </span>
                     </div>
                 </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/stoneblog/tags/JSP/">
+                        <span class="chip bg-color">JSP</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -709,31 +782,32 @@ response 设置响应行
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/stoneblog/2020/04/28/servleta/">
+                <a href="/stoneblog/2020/05/02/cookiesession/">
                     <div class="card-image">
                         
                         
-                        <img src="/stoneblog/medias/featureimages/19.jpg" class="responsive-img" alt="HTTP协议(包括GET和POST)">
+                        <img src="/stoneblog/medias/featureimages/14.jpg" class="responsive-img" alt="会话技术Cookie&amp;Session">
                         
-                        <span class="card-title">HTTP协议(包括GET和POST)</span>
+                        <span class="card-title">会话技术Cookie&amp;Session</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <!-- <div class="summary block-with-text">
                         
-                            HTTP协议 什么是HTTP协议
-HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，是一个无状态的请求/响应协议。
-HTTP是一个基于TCP/IP通信协议来传递数
+                            会话技术Cookie&amp;Session会话技术
+存储客户端的状态会话技术是帮助服务器记住客户端状态(区分客户端)
+会话技术从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，称为一次会话。会话技术就是记录这次会话中客户端的状态与
                         
                     </div> -->
                     <div class="summary">
                         
-                            HTTP协议 什么是HTTP协议
-HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广
+                            会话技术Cookie&amp;Session会话技术
+存储客户端的状态会话技术是帮助服务器记住客户端状态(区分客户端)
+会话技术从打开一个浏
                         
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
                             </span>
                         <span class="publish-author">
                             
@@ -750,8 +824,8 @@ HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/stoneblog/tags/HTTP/">
-                        <span class="chip bg-color">HTTP</span>
+                    <a href="/stoneblog/tags/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">会话技术</span>
                     </a>
                     
                 </div>
