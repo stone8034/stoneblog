@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="会话技术Cookie&amp;Session, 编程基础，java,php,html,javascript,css,jQ,SQL">
+    <meta name="keywords" content="JDBC, 编程基础，java,php,html,javascript,css,jQ,SQL">
     <meta name="description" content="java,javaScript">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>会话技术Cookie&amp;Session | 编程小石头</title>
+    <title>JDBC | 编程小石头</title>
     <link rel="icon" type="image/png" href="/stoneblog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/stoneblog/libs/awesome/css/all.css">
@@ -201,12 +201,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/stoneblog/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/stoneblog/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">会话技术Cookie&amp;Session</h1>
+                    <h1 class="description center-align post-title">JDBC</h1>
                 </div>
             </div>
         </div>
@@ -331,8 +331,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/stoneblog/tags/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/">
-                                <span class="chip bg-color">会话技术</span>
+                            <a href="/stoneblog/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
                             </a>
                         
                     </div>
@@ -343,8 +343,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/stoneblog/categories/javaEE/" class="post-category">
-                                javaEE
+                            <a href="/stoneblog/categories/JDBC/" class="post-category">
+                                JDBC
                             </a>
                         
                     </div>
@@ -356,7 +356,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-02
+                    2020-05-04
                 </div>
                 
 
@@ -365,14 +365,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    765
+                    364
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -387,43 +387,52 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="会话技术Cookie-amp-Session"><a href="#会话技术Cookie-amp-Session" class="headerlink" title="会话技术Cookie&amp;Session"></a>会话技术Cookie&amp;Session</h1><h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><ol>
-<li>存储客户端的状态<br>会话技术是帮助服务器记住客户端状态(区分客户端)</li>
-<li>会话技术<br>从打开一个浏览器访问某个站点，到关闭这个浏览器的整个过程，称为一次会话。会话技术就是记录这次会话中客户端的状态与数据的。<br>会话技术分为Cookie 和Session：<br>Cookie: 数据存储在客户端本地，减少服务器的压力，安全性不好，客户端可以cookie<br>Session: 数据存储到服务器端，安全性相对好，增加服务器的压力</li>
-</ol>
-<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p><img src="/stoneblog/2020/05/02/cookiesession/cookie%E6%8A%80%E6%9C%AF%E7%9A%84%E8%B4%AD%E7%89%A9%E8%BF%87%E7%A8%8B.png" alt></p>
+                <h2 id="什么是JDBC"><a href="#什么是JDBC" class="headerlink" title="什么是JDBC"></a>什么是JDBC</h2><blockquote>
+<p>JDBC  java database connectivity<br>JDBC 是一种用于执行SQL语句的java API<br>JDBC 可以为多种关系型数据库提供统一访问入口<br>JDBC 由一组java工具和接口组成</p>
+</blockquote>
 <ol>
-<li><p>服务端向客户端发送一个Cookie<br>创建Cookie：Cookie cookie= new Cookie(String cookieName, String cookieValue);</p>
+<li><p>mysql jdbc驱动版本与mysql数据库版本有一定的对应关系</p>
 </li>
-<li><p>发送到客户端: response.addCookie(cookie);</p>
+<li><p>查看数据库版本<br>cmd mysql -u root -p 密码  select version();</p>
 </li>
-<li><p>设置Cookie 在客户端的持久化时间<br>cookie.cookie.setMaxAge(时间秒);<br>注意: 如果不设置持久化时间，Cookie会存储在浏览器内存中，浏览器关闭cookie信息销毁(会话级别的cookie)，如果设置持久化时间，cookie信息会被持久化到浏览器的磁盘文件里</p>
-</li>
-<li><p>设置cookie的携带路径<br>cookie.setPath(url);<br>如果不设置默认也会有一个携带路径，*默认为当前路径的上一级路径*</p>
-</li>
-<li><p>删除cookie<br>Cookie cookie  = new Cookie(“stone”,””);<br>cookie.setMaxAge(0);</p>
-</li>
-<li><p>注意: cookie中不能存储中文</p>
-</li>
-<li><p>获取Cookie</p>
-<pre class=" language-java"><code class="language-java">     Cookie<span class="token punctuation">[</span><span class="token punctuation">]</span> cookies <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getCookies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>cookies <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-         <span class="token keyword">for</span><span class="token punctuation">(</span>Cookie cookie <span class="token operator">:</span> cookies<span class="token punctuation">)</span><span class="token punctuation">{</span>
-             response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>cookie<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">":"</span><span class="token operator">+</span>cookie<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-     <span class="token punctuation">}</span>
-</code></pre>
+<li><p>下载对应的数据库驱动</p>
 </li>
 </ol>
-<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p><img src="/stoneblog/2020/05/02/cookiesession/Session%E6%B5%81%E7%A8%8B.png" alt></p>
-<p>session技术是将数据存储在服务器端的技术，会为每一个客户端都创建一块内存空间存储客户的数据，但客户端需要每次都携带一个标识ID去服务器中寻找属于自己的内存空间。所以说session的实现是基于Cookie的，Session需要借助于Cookie存储客户的唯一性标识JSESSIOINID</p>
-<ol>
-<li>获取(创建)Session对象<br>HttpSession session = request.getSession();<br>方法内部会判断该客户端是否在服务器端已经存在的session<br>如果该客户端在此服务器不存在session 那么就会创建一个session对象<br>如果该客户端在此服务器上存在session 获得已经存在的该session返回<br>(实质就是根据JSESSIONID判断该客户端是否存在服务器已经存在session了)</li>
-<li>获得session的JESSIONID<br>String id = session.getId();//该session对象的id</li>
-<li>session存取数据<br>session.setAttribute(String name,Object obj);// 存<br>session.getAttribute(String name);// 取 </li>
-<li>Session对象的生命周期（面试或者笔试）<br>4.1创建: 第一次执行request.getSession();时创建<br>4.2销毁:<br>（1）session过期/失效(默认30分钟) 可在工程的web.xml 文件中配置<br>默认30分钟是从不操作服务器的资源开始计时<br>（2）服务器(非正常)关闭时<br>（3）手动销毁 session.invalidate(); (invalidate 使无效)<br>4.3作用范围:  默认在一次会话中，也就是说在，一次会话中任何资源公用一个session对象</li>
-<li>Session持久化<br>手动创建一个存储JSESSIONID的Cookie,为该cookie设置持久化时间<br>String id = session.getId();<br>Cookie cookie = new Cookie(“JSESSIONID”,id);<br>cookie.setMaxAge(60*10);</li>
-</ol>
+<h3 id="JDBC-开发步骤"><a href="#JDBC-开发步骤" class="headerlink" title="JDBC 开发步骤"></a>JDBC 开发步骤</h3><p>1.注册驱动<br>2.获得连接<br>3.获得语句执行者<br>4.执行sql语句<br>5.处理结果<br>6.释放资源</p>
+<p>使用DriverManget 类<br>使用Connection 接口<br>使用Statement 接口<br>使用ResultSet 接口</p>
+<h3 id="java连接mysql数据库的具体代码实现"><a href="#java连接mysql数据库的具体代码实现" class="headerlink" title="java连接mysql数据库的具体代码实现"></a>java连接mysql数据库的具体代码实现</h3><pre><code>        //1.注册驱动
+        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+        // 2 获取连接 (jdbcurl, user, password)  DriverManager可以同时管理多个驱动程序
+        Connection conn = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/web01&quot;,&quot;root&quot;,&quot;123456&quot;);
+        // 3 创建一个执行SQL语句的对象 
+        Statement stmt = conn.createStatement();
+        //书写一个sql 语句 
+        String sql = &quot;select * from tbl_user&quot;;
+        //4执行SQL语句
+        ResultSet rs = stmt.executeQuery(sql);
+        // 5对返回结果进行处理
+
+        if(rs.next()){
+            System.out.println(&quot;成功!&quot;);
+        }else{
+            System.out.println(&quot;失败了!&quot;);
+        }
+        // 关6闭连接
+
+        if(rs !=null){
+            rs.close();
+        }
+        if(stmt !=null){
+            stmt.close();
+        }
+        if(conn !=null){
+            conn.close();
+        }</code></pre><blockquote>
+<p>CRUD: 增加(Create)、读取(Read)、更新(Update)和删除(Delete)</p>
+</blockquote>
+<h3 id="分页查询-少不了的limit"><a href="#分页查询-少不了的limit" class="headerlink" title="分页查询 少不了的limit"></a>分页查询 少不了的limit</h3><p>   select  from product limit 2,3;  
+   2起始位置,3每页的数目。
+   [起始位置 = (要查询的页数-1)    每页的数目] </p>
 
             </div>
             <hr/>
@@ -449,7 +458,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stone8034.github.io/stoneblog/2020/05/02/cookiesession/">https://stone8034.github.io/stoneblog/2020/05/02/cookiesession/</a>
+                    <a href="https://stone8034.github.io/stoneblog/2020/05/04/jdbc/">https://stone8034.github.io/stoneblog/2020/05/04/jdbc/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -487,8 +496,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/stoneblog/tags/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/">
-                                    <span class="chip bg-color">会话技术</span>
+                                <a href="/stoneblog/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
                                 </a>
                             
                         </div>
@@ -657,9 +666,70 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/stoneblog/2020/05/04/jdbc/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/stoneblog/medias/featureimages/11.jpg" class="responsive-img" alt="JDBC">
+                        
+                        <span class="card-title">JDBC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <!-- <div class="summary block-with-text">
+                        
+                            什么是JDBC
+JDBC  java database connectivityJDBC 是一种用于执行SQL语句的java APIJDBC 可以为多种关系型数据库提供统一访问入口JDBC 由一组java工具和接口组成
+
+
+mysql jd
+                        
+                    </div> -->
+                    <div class="summary">
+                        
+                            什么是JDBC
+JDBC  java database connectivityJDBC 是一种用于执行SQL语句的java APIJDBC
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/stoneblog/categories/JDBC/" class="post-category">
+                                    JDBC
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/stoneblog/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/stoneblog/2020/05/03/jsp/">
                     <div class="card-image">
@@ -671,7 +741,6 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-
                     <!-- <div class="summary block-with-text">
                         
                             jsp技术
@@ -688,12 +757,10 @@ jsp脚本&lt;% java代码%&gt; –内部的java代码会被翻译到servlet方�
 
 jsp 脚本和注释
                         
-                    </div>
-
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -711,65 +778,6 @@ jsp 脚本和注释
                     
                     <a href="/stoneblog/tags/JSP/">
                         <span class="chip bg-color">JSP</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/stoneblog/2020/05/01/sql/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/stoneblog/medias/featureimages/6.jpg" class="responsive-img" alt="SQL">
-                        
-                        <span class="card-title">SQL</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <!-- <div class="summary block-with-text">
-                        
-                            SQL参考
-开启关闭数据库net start mysqlnet stop mysql 
-登录数据库进入cmd 然后 mysql -u root -p 密码
-sql 分类
-数据库定义语言: DDL, 用来定义数据库对象:数据库database
-                        
-                    </div> -->
-                    <div class="summary">
-                        
-                            SQL参考
-开启关闭数据库net start mysqlnet stop mysql 
-登录数据库进入cmd 然后 mysql -u roo
-                        
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/stoneblog/categories/SQL/" class="post-category">
-                                    SQL
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/stoneblog/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
                     </a>
                     
                 </div>

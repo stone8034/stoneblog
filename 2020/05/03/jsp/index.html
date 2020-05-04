@@ -388,7 +388,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="jsp技术"><a href="#jsp技术" class="headerlink" title="jsp技术"></a>jsp技术</h1><blockquote>
-<p> 服务端的动态资源，获取数据和显示数据。<br>jsp由html,java脚本(java片段)，jsp动作标签组成。</p>
+<p>服务端的动态资源，获取数据和显示数据。<br>jsp由html,java脚本(java片段)，jsp动作标签组成。</p>
 </blockquote>
 <h2 id="jsp-脚本和注释"><a href="#jsp-脚本和注释" class="headerlink" title="jsp 脚本和注释"></a>jsp 脚本和注释</h2><ol>
 <li>jsp脚本<br>&lt;% java代码%&gt; –内部的java代码会被翻译到servlet方法的内部<br>&lt;%=java变量或者表达式 %&gt; —会被翻译成servlet方法内部out.print();<br>&lt;%!java代码%&gt; — 会被翻译成servelt的成员的内部</li>
@@ -401,11 +401,10 @@
 <p>jsp 指令是指导jsp翻译和运行的命令</p>
 </blockquote>
 <ol>
-<li><p>page指令— 属性最多的指令(实际开发中page指令默认)<br>属性最多的一个指令，根据不同的属性，指导整个也页面特性<br>格式:&lt;%@page 属性名1 = “属性值1” 属性名2 = “属性值2” 属性名3 = “属性值3”%&gt;<br>常用属性如下:<br>language: jsp脚本可以嵌入的语言种类<br>pageEncoding：当前jsp文件的本身编码– 内部可以包含contentType<br>contentType： response.setContentType(“text/html;charset=UTF-8”)<br>session: 是否jsp在翻译时自动创建session<br>import：导入java包<br>errorPage: 当前页面出错后跳转到哪个页面<br>isErrorPage: 当前页面是一个处理错误的页面</p>
-</li>
-<li><p>include 指令<br>页面包含(静态包含)指令，可以将页面包含到另一个jsp页面中<br>格式: &lt;%@ include file=”被包含的文件地址”%&gt;</p>
-</li>
-<li><p>tablib指令<br>在jsp页面中引入标签库(jslt 标签库,struts2 标签库)<br>格式： &lt;%@ tablib uri = “标签库的地址” prefix=”前缀”%&gt;</p>
+<li>page指令— 属性最多的指令(实际开发中page指令默认)<br>属性最多的一个指令，根据不同的属性，指导整个也页面特性<br>格式:&lt;%@page 属性名1 = “属性值1” 属性名2 = “属性值2” 属性名3 = “属性值3”%&gt;<br>常用属性如下:<br>language: jsp脚本可以嵌入的语言种类<br>pageEncoding：当前jsp文件的本身编码– 内部可以包含contentType<br>contentType： response.setContentType(“text/html;charset=UTF-8”)<br>session: 是否jsp在翻译时自动创建session<br>import：导入java包<br>errorPage: 当前页面出错后跳转到哪个页面<br>isErrorPage: 当前页面是一个处理错误的页面</li>
+<li>include 指令<br>页面包含(静态包含)指令，可以将页面包含到另一个jsp页面中<br>格式: &lt;%@ include file=”被包含的文件地址”%&gt;</li>
+<li>tablib指令<br>在jsp页面中引入标签库(jslt 标签库,struts2 标签库)<br>格式： &lt;%@ tablib uri = “标签库的地址” prefix=”前缀”%&gt;</li>
+</ol>
 <h2 id="jsp内置-隐私对象（9个）"><a href="#jsp内置-隐私对象（9个）" class="headerlink" title="jsp内置/隐私对象（9个）"></a>jsp内置/隐私对象（9个）</h2><blockquote>
 <p>jsp被翻译成servlet 之后，servlet方法中有九个对象定义并完成初始化完毕，我们在jsp脚本中可以直接使用这九个对象。</p>
 </blockquote>
@@ -463,20 +462,16 @@
 <td>表示JSP页面所发生的异常，在错误页面中才起作用</td>
 </tr>
 </tbody></table>
-</li>
-<li><p>out 对象<br>out的类型: JspWriter();<br>out作用就是向客户端输出内容<br>out缓冲区默认8kb 可以设置成0， 代表关闭out缓冲区，内容直接写到response缓冲区</p>
-</li>
-<li><p>pageContext 对象<br>jsp页面的上下文对象，作用如下<br>page对象与pageContext对象不是一回事</p>
 <ol>
+<li>out 对象<br>out的类型: JspWriter();<br>out作用就是向客户端输出内容<br>out缓冲区默认8kb 可以设置成0， 代表关闭out缓冲区，内容直接写到response缓冲区</li>
+<li>pageContext 对象<br>jsp页面的上下文对象，作用如下<br>page对象与pageContext对象不是一回事<ol>
 <li>pageContext是一个域对象<br>getAttribute(String name,Object obj);<br>setAttribute(String name);<br>removeAttribute(String name);<br>setAttribute(String name,Object obj,int scope);<br>getAttribute(String name,int scope);<br>removeAttribute(String name,int scope);<br>findAttribute(String name);</li>
 </ol>
-<p>—- 依次从pageContext域，request域，session域，application域中获取属性，在某个域中获取后将不再向后寻找。</p>
-<ol start="2">
+—- 依次从pageContext域，request域，session域，application域中获取属性，在某个域中获取后将不再向后寻找。<ol start="2">
 <li>可以获得其他8大隐式对象<br>例如：pageContext.getRequest();<br>&nbsp;  &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;pageContext.getSession();</li>
 </ol>
 </li>
-<li><p>四大作用域的总结:<br>page域: 当前jsp页面范围<br>request域: 一次请求<br>session域: 一次会话<br>application域: 真个web应用</p>
-</li>
+<li>四大作用域的总结:<br>page域: 当前jsp页面范围<br>request域: 一次请求<br>session域: 一次会话<br>application域: 真个web应用</li>
 </ol>
 <h2 id="jsp-标签-动作"><a href="#jsp-标签-动作" class="headerlink" title="jsp 标签 (动作)"></a>jsp 标签 (动作)</h2><ol>
 <li>页面包含(动作包含):\&lt;jsp:include page=”被包含的页面”/&gt;</li>
@@ -716,60 +711,58 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/stoneblog/2020/05/03/jsp/">
+                <a href="/stoneblog/2020/05/04/jdbc/">
                     <div class="card-image">
                         
                         
-                        <img src="/stoneblog/medias/featureimages/15.jpg" class="responsive-img" alt="JSP">
+                        <img src="/stoneblog/medias/featureimages/11.jpg" class="responsive-img" alt="JDBC">
                         
-                        <span class="card-title">JSP</span>
+                        <span class="card-title">JDBC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
+
                     <!-- <div class="summary block-with-text">
                         
-                            jsp技术
- 服务端的动态资源，获取数据和显示数据。jsp由html,java脚本(java片段)，jsp动作标签组成。
+                            什么是JDBC
+JDBC  java database connectivityJDBC 是一种用于执行SQL语句的java APIJDBC 可以为多种关系型数据库提供统一访问入口JDBC 由一组java工具和接口组成
 
-jsp 脚本和注释
-jsp脚本&lt;% java代码%&gt; –内部的java代码会被翻译到servlet方法的
+
+mysql jd
                         
                     </div> -->
                     <div class="summary">
                         
-                            jsp技术
- 服务端的动态资源，获取数据和显示数据。jsp由html,java脚本(java片段)，jsp动作标签组成。
-
-jsp 脚本和注
+                            什么是JDBC
+JDBC  java database connectivityJDBC 是一种用于执行SQL语句的java APIJDBC
                         
                     </div>
+
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/stoneblog/categories/javaEE/" class="post-category">
-                                    javaEE
+                            <a href="/stoneblog/categories/JDBC/" class="post-category">
+                                    JDBC
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/stoneblog/tags/JSP/">
-                        <span class="chip bg-color">JSP</span>
+                    <a href="/stoneblog/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
                     </a>
                     
                 </div>
@@ -1016,7 +1009,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.8k</span>&nbsp;字
+                class="white-color">9.1k</span>&nbsp;字
             
             
             
